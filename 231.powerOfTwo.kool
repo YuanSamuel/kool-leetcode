@@ -1,0 +1,28 @@
+class Solution {
+    method Solution() {}
+
+    boolean isPowerOfTwo(int n) {
+        if (n == 0) {
+            return false;
+        }
+        
+        while (n > 0) {
+            if (n == 1) {
+                return true;
+            }
+            if (n % 2 != 0) {
+                break;
+            }
+            n /= 2;
+        }
+        return false;
+    }
+}
+
+class Main {
+  method Main() {
+    var solution = new Solution();
+    print(solution.isPowerOfTwo(31));
+    print(solution.isPowerOfTwo(32));
+  }
+}

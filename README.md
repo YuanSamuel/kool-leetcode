@@ -3,7 +3,7 @@
 This repository contains solutions for the following Leetcode problems written in the Kool language.
 
 ### Easy Difficulty
-- [9 Palindrom Number](https://leetcode.com/problems/palindrome-number)
+- [9 Palindrome Number](https://leetcode.com/problems/palindrome-number)
 - [231 Power of Two](https://leetcode.com/problems/power-of-two)
 - [507 Perfect Number](https://leetcode.com/problems/perfect-number)
 

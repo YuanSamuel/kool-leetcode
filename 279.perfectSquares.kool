@@ -1,0 +1,35 @@
+class Solution {
+    method Solution() {}
+
+    int numSquares(int n) {
+        int dp[n + 1];
+        for (int i = 0; i <= n; ++i) {
+            dp[i] = 100000000;
+        }
+        dp[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            int min = 100000000;
+            int j = 1;
+            while (i - j*j >= 0) {
+                int numWays = dp[i - j*j] + 1;
+                if (numWays < min) {
+                    min = numWays;
+                }
+                ++j;
+            }
+            dp[i] = min;
+        }		
+        return dp[n];
+    }
+}
+
+class Main {
+    method Main() {
+        Solution solution = new Solution();
+        print(solution.numSquares(12));
+        print(solution.numSquares(13));
+        print(solution.numSquares(71));
+    }
+}
+
+

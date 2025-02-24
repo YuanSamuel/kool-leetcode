@@ -1,0 +1,31 @@
+class Solution {
+    method Solution() {}
+
+    boolean checkPerfectNumber(int num) {
+        if (num == 1) {
+            return false;
+        }
+        
+        int sum = 0;
+        int i = 2;
+        while (i * i <= num) {
+            if (num % i == 0) {
+                sum = sum + i;
+                if (i != num / i) {
+                    sum += num / i;
+                }
+            }
+            i++;
+        }
+        
+        return sum == num;
+    }
+}
+
+class Main {
+  method Main() {
+    Solution solution = new Solution();
+    print(solution.checkPerfectNumber(28));
+    print(solution.checkPerfectNumber(32));
+  }
+}

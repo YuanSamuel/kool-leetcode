@@ -20,9 +20,9 @@ class Solution {
 }
 
 class Main {
-  method Main() {
-    var solution = new Solution();
-    print(solution.isPalindrome(121));
-    print(solution.isPalindrome(123));
-  }
+    method Main() {
+      Solution solution = new Solution();
+      print(solution.isPalindrome(121));
+      print(solution.isPalindrome(123));
+    }
 }

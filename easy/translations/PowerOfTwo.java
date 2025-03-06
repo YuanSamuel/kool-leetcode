@@ -1,10 +1,12 @@
-class PowerOfTwo {
-    method Main() {
-        print(isPowerOfTwo(31));
-        print(isPowerOfTwo(32));
+package easy.translations;
+
+public class PowerOfTwo {
+    public static void main(String[] args) {
+        System.out.println(isPowerOfTwo(31));
+        System.out.println(isPowerOfTwo(32));  
     }
 
-    boolean isPowerOfTwo(int n) {
+    public static boolean isPowerOfTwo(int n) {
         if (n == 0) {
             return false;
         }
@@ -20,4 +22,5 @@ class PowerOfTwo {
         }
         return false;
     }
+
 }

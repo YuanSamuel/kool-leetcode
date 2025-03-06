@@ -1,10 +1,11 @@
+
 class PowerOfTwo {
     method Main() {
         print(isPowerOfTwo(31));
-        print(isPowerOfTwo(32));
+        print(isPowerOfTwo(32));  
     }
 
-    boolean isPowerOfTwo(int n) {
+    bool isPowerOfTwo(int n) {
         if (n == 0) {
             return false;
         }
@@ -20,4 +21,5 @@ class PowerOfTwo {
         }
         return false;
     }
+
 }

@@ -1,10 +1,11 @@
-class PalindromeNumber {
-    method Main() {
-      print(isPalindrome(121));
-      print(isPalindrome(123));
+package easy.translations;
+
+public class PalindromeNumber {
+    public static void main(String[] args) {
+        System.out.println(isPalindrome(12321));
     }
 
-    bool isPalindrome(int x) {
+    public static boolean isPalindrome(int x) {
         if (x < 0) {
             return false;
         }
@@ -18,6 +19,6 @@ class PalindromeNumber {
             temp = temp / 10;
         }
 
-        return (reversed == x);
+        return x == reversed;
     }
 }

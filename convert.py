@@ -2,6 +2,26 @@ import re
 import sys
 
 def java_to_kool(java_code: str) -> str:
+    def replace_array_initialization(match):
+        base_type = match.group('base_type')
+        var = match.group('var')
+        brackets = match.group('brackets')
+        # Extract the dimension expressions (content inside each pair of brackets)
+        dims = re.findall(r'\[([^\]]+)\]', brackets)
+        dims = [dim.strip() for dim in dims]
+        dims_joined = ", ".join(dims)
+        return f"{base_type} {var}[{dims_joined}];"
+
+    def replace_print_concat(match):
+        args = match.group('args')
+        # Only transform if there is concatenation
+        if '+' not in args:
+            return match.group(0)
+        # Split the arguments on the '+' operator and rejoin with commas
+        parts = re.split(r'\s*\+\s*', args)
+        new_args = ", ".join(parts)
+        return f"print({new_args})"
+    
     java_code = java_code.replace("\\n", "\n")
     kool_lines = []
     # Process the Java code line-by-line
@@ -37,13 +57,18 @@ def java_to_kool(java_code: str) -> str:
             line
         )
 
-        # Transform array initializations:
-        # e.g. "int[] dp = new int[n + 1];" -> "int dp[n + 1];"
+        # Transform multi-dimensional array initializations:
+        # e.g. "int[] a = new int[n + 1];" -> "int a[n + 1];"
+        #      "int[] b = new int[n + 1][j + 1];" -> "int b[n + 1, j + 1];"
         line = re.sub(
-            r'(\w+)\[\]\s+(\w+)\s*=\s*new\s+\w+\s*(\[[^;]+\])\s*;',
-            r'\1 \2\3;',
+            r'(?P<base_type>\w+)(?:\s*\[\s*\])+?\s+(?P<var>\w+)\s*=\s*new\s+\w+\s*(?P<brackets>(?:\[[^\]]+\]\s*)+);',
+            replace_array_initialization,
             line
         )
+
+        # Transform string interpolation in print statements:
+        # e.g. convert print("abcd" + i + "1234" + j) into print("abcd", i, "1234", j)
+        line = re.sub(r'print\(\s*(?P<args>.+?)\s*\)', replace_print_concat, line)
 
         kool_lines.append(line)
     

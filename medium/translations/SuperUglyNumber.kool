@@ -1,0 +1,37 @@
+
+class SuperUglyNumber {
+    method Main() {
+        int primesLength = 4;
+        int primes[primesLength];
+        primes[0] = 2;
+        primes[1] = 7;
+        primes[2] = 13;
+        primes[3] = 19;
+
+        print(nthSuperUglyNumber(12, primes, primesLength));
+        print(nthSuperUglyNumber(20, primes, primesLength));
+    }
+
+    int nthSuperUglyNumber(int n, int[] primes, int primesLength) {
+        int ugly[n];
+        int idx[primesLength];
+    
+        ugly[0] = 1;
+        for (int i = 1; i < n; i++) {
+            ugly[i] = 1000000000;
+            for (int j = 0; j < primesLength; j++) {
+                if (primes[j] * ugly[idx[j]] < ugly[i]) {
+                    ugly[i] = primes[j] * ugly[idx[j]];
+                }
+            }
+            
+            for (int j = 0; j < primesLength; j++) {
+                while (primes[j] * ugly[idx[j]] <= ugly[i]) {
+                    idx[j]++;  
+                } 
+            }
+        }
+    
+        return ugly[n - 1];
+    }
+}

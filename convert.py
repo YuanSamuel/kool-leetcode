@@ -50,6 +50,9 @@ def java_to_kool(java_code: str) -> str:
         # Convert "boolean" to "bool"
         line = line.replace("boolean", "bool")
 
+        # Convert "String" to "string"
+        line = line.replace("String", "string")
+
         # Transform compound math operators (e.g. +=, -=, *=, /=, %=)
         line = re.sub(
             r'(\S+)\s*([\+\-\*/%])=\s*(.+);',

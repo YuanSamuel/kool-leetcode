@@ -1,0 +1,40 @@
+
+class PredictTheWinner {
+    method Main() {
+        int numsA[3];
+        int numsB[4];
+
+        numsA[0] = 1;
+        numsA[1] = 5;
+        numsA[2] = 2;
+
+        numsB[0] = 1;
+        numsB[1] = 5;
+        numsB[2] = 233;
+        numsB[3] = 7;
+
+        print(predictTheWinner(numsA, 3));
+        print(predictTheWinner(numsB, 4));
+    }
+
+    bool predictTheWinner(int[] nums, int numsLength) {
+        int n = numsLength;
+        int dp[n, n];
+        for (int i = 0; i < n; i++) { 
+            dp[i][i] = nums[i]; 
+        }
+        for (int len = 1; len < n; len++) {
+            for (int i = 0; i < n - len; i++) {
+                int j = i + len;
+                int a = nums[i] - dp[i + 1][j];
+                int b = nums[j] - dp[i][j - 1];
+                if (a > b) {
+                    dp[i][j] = a;
+                } else {
+                    dp[i][j] = b;
+                }
+            }
+        }
+        return dp[0][n - 1] >= 0;
+    }
+}

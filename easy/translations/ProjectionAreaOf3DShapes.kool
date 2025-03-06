@@ -1,0 +1,35 @@
+
+class ProjectionAreaOf3DShapes {
+    method Main() {
+        int n = 2;
+        int grid[n, n];
+        grid[0][0] = 1;
+        grid[0][1] = 2;
+        grid[1][0] = 3;
+        grid[1][1] = 4;
+
+        print(projectionArea(grid, n));
+    }
+
+    int projectionArea(int[][] grid, int gridLength) {
+        int res = 0;
+        int n = gridLength;
+        for (int i = 0; i < n; ++i) {
+            int x = 0;
+            int y = 0;
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] > x) {
+                    x = grid[i][j];
+                }
+                if (grid[j][i] > y) {
+                    y = grid[j][i];
+                }
+                if (grid[i][j] > 0) {
+                    ++res;
+                }
+            }
+            res = res + x + y;
+        }
+        return res;
+    }
+}

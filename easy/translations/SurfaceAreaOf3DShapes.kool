@@ -1,0 +1,45 @@
+
+class SurfaceAreaOf3DShapes {
+    method Main() {
+        int n = 3;
+        int grid[n, n];
+        grid[0][0] = 2;
+        grid[0][1] = 2;
+        grid[0][2] = 2;
+        grid[1][0] = 2;
+        grid[1][1] = 1;
+        grid[1][2] = 2;
+        grid[2][0] = 2;
+        grid[2][1] = 2;
+        grid[2][2] = 2;
+
+        print(surfaceArea(grid, n));
+    }
+
+    int surfaceArea(int[][] grid, int gridLength) {
+        int res = 0;
+        int n = gridLength;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] > 0) {
+                    res = res + grid[i][j] * 4 + 2;
+                }
+                if (i > 0) {
+                    if (grid[i][j] < grid[i - 1][j]) {
+                        res = res - grid[i][j] * 2;
+                    } else {
+                        res = res - grid[i - 1][j] * 2;
+                    }
+                }
+                if (j > 0) {
+                    if (grid[i][j] < grid[i][j - 1]) {
+                        res = res - grid[i][j] * 2;
+                    } else {
+                        res = res - grid[i][j - 1] * 2;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+}

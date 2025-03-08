@@ -14,11 +14,19 @@ def java_to_kool(java_code: str) -> str:
 
     def replace_print_concat(match):
         args = match.group('args')
-        # Only transform if there is concatenation
-        if '+' not in args:
-            return match.group(0)
-        # Split the arguments on the '+' operator and rejoin with commas
-        parts = re.split(r'\s*\+\s*', args)
+        # Split by '+' if present, otherwise treat as a single token
+        if '+' in args:
+            parts = re.split(r'\s*\+\s*', args)
+        else:
+            parts = [args.strip()]
+        # Append newline: if the last token is a string literal, append \n before its closing quote;
+        # otherwise, add a new token containing "\n"
+        if parts:
+            last = parts[-1].strip()
+            if last.startswith('"') and last.endswith('"'):
+                parts[-1] = last[:-1] + r'\n"'
+            else:
+                parts.append(r'"\n"')
         new_args = ", ".join(parts)
         return f"print({new_args})"
     
@@ -44,8 +52,12 @@ def java_to_kool(java_code: str) -> str:
             indent = re.match(r'\s*', line).group(0)
             line = indent + "method Main() {"
 
-        # Replace System.out.println with print
-        line = line.replace("System.out.println", "print")
+        # Check for System.out.println and transform it into a Kool print call with a newline
+        if "System.out.println" in line:
+            # Replace System.out.println with print
+            line = line.replace("System.out.println", "print")
+            # Transform string concatenation inside the print call and append a newline
+            line = re.sub(r'print\(\s*(?P<args>.+?)\s*\)', replace_print_concat, line)
 
         # Convert "boolean" to "bool"
         line = line.replace("boolean", "bool")
@@ -68,10 +80,6 @@ def java_to_kool(java_code: str) -> str:
             replace_array_initialization,
             line
         )
-
-        # Transform string interpolation in print statements:
-        # e.g. convert print("abcd" + i + "1234" + j) into print("abcd", i, "1234", j)
-        line = re.sub(r'print\(\s*(?P<args>.+?)\s*\)', replace_print_concat, line)
 
         kool_lines.append(line)
     

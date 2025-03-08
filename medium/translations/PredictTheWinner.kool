@@ -13,8 +13,8 @@ class PredictTheWinner {
         numsB[2] = 233;
         numsB[3] = 7;
 
-        print(predictTheWinner(numsA, 3));
-        print(predictTheWinner(numsB, 4));
+        print(predictTheWinner(numsA, 3, "\n"));
+        print(predictTheWinner(numsB, 4, "\n"));
     }
 
     bool predictTheWinner(int[] nums, int numsLength) {

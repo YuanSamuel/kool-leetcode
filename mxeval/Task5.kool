@@ -1,0 +1,16 @@
+class Solution {
+    int[] intersperse(int[] numbers, int numbersLength, int delimiter) {
+        if (numbersLength == 0) {
+            int result[0];
+            return result;
+        }
+
+        int result[numbersLength * 2 - 1];
+        for (int i = 0; i < numbersLength - 1; i++) {
+            result[i * 2] = numbers[i];
+            result[i * 2 + 1] = delimiter;
+        }
+        result[numbersLength * 2 - 2] = numbers[numbersLength - 1];
+        return result;
+    }
+}

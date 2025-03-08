@@ -1,0 +1,15 @@
+class Solution {
+    int[] sumProduct(int[] numbers, int numbersLength) {
+        int sum = 0;
+        int product = 1;
+        for (int i = 0; i < numbersLength; i++) {
+            sum = sum + numbers[i];
+            product = product * numbers[i];
+        }
+
+        int result[2];
+        result[0] = sum;
+        result[1] = product;
+        return result;
+    }
+}

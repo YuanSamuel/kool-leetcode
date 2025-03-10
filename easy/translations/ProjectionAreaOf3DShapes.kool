@@ -8,7 +8,7 @@ class ProjectionAreaOf3DShapes {
         grid[1][0] = 3;
         grid[1][1] = 4;
 
-        print(projectionArea(grid, n));
+        print(projectionArea(grid, n, "\n"));
     }
 
     int projectionArea(int[][] grid, int gridLength) {

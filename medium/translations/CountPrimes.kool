@@ -1,10 +1,10 @@
 
 class CountPrimes {
     method Main() {
-        print(countPrimes(10));
-        print(countPrimes(0));
-        print(countPrimes(2));
-        print(countPrimes(20));
+        print(countPrimes(10, "\n"));
+        print(countPrimes(0, "\n"));
+        print(countPrimes(2, "\n"));
+        print(countPrimes(20, "\n"));
     }
 
     int countPrimes(int n) {

@@ -1,7 +1,7 @@
 
 class RectangleArea {
     method Main() {
-        print(computeArea(-3, 0, 3, 4, 0, -1, 9, 2));
+        print(computeArea(-3, 0, 3, 4, 0, -1, 9, 2, "\n"));
     }
 
     int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {

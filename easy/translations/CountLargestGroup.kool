@@ -1,8 +1,8 @@
 
 class CountLargestGroup {
     method Main() {
-        print(countLargestGroup(13));
-        print(countLargestGroup(2));
+        print(countLargestGroup(13, "\n"));
+        print(countLargestGroup(2, "\n"));
     }
 
     int countLargestGroup(int n) {

@@ -16,9 +16,9 @@ class TypeOfTriangle {
         traingleC[1] = 4;
         traingleC[2] = 3;
 
-        print(triangleType(traingleA));
-        print(triangleType(traingleB));
-        print(triangleType(traingleC));
+        print(triangleType(traingleA, "\n"));
+        print(triangleType(traingleB, "\n"));
+        print(triangleType(traingleC, "\n"));
     }
 
     string triangleType(int[] nums) {

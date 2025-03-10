@@ -1,9 +1,9 @@
 
 class PerfectSquares {
     method Main() {
-        print(numSquares(12));
-        print(numSquares(13));
-        print(numSquares(71));
+        print(numSquares(12, "\n"));
+        print(numSquares(13, "\n"));
+        print(numSquares(71, "\n"));
     }
 
     int numSquares(int n) {

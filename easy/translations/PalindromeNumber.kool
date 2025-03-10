@@ -1,7 +1,7 @@
 
 class PalindromeNumber {
     method Main() {
-        print(isPalindrome(12321));
+        print(isPalindrome(12321, "\n"));
     }
 
     bool isPalindrome(int x) {

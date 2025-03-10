@@ -9,7 +9,7 @@ class CellsWithOddValues {
         indices[1][0] = 1;
         indices[1][1] = 1;
         int numOdd = oddCells(m, n, indices, 2);
-        print(numOdd);
+        print(numOdd, "\n");
     }
 
     int oddCells(int m, int n, int[][] indices, int numIndices) {

@@ -1,7 +1,7 @@
 
 class PerfectNumber {
     method Main() {
-        print(checkPerfectNumber(28));
+        print(checkPerfectNumber(28, "\n"));
     }
 
     bool checkPerfectNumber(int num) {
@@ -14,7 +14,6 @@ class PerfectNumber {
         while (i * i <= num) {
             if (num % i == 0) {
                 sum = sum + i + num / i;
-                print(i + " " + (num / i));
             }
             i++;
         }

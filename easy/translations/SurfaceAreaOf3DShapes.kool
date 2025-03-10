@@ -13,7 +13,7 @@ class SurfaceAreaOf3DShapes {
         grid[2][1] = 2;
         grid[2][2] = 2;
 
-        print(surfaceArea(grid, n));
+        print(surfaceArea(grid, n, "\n"));
     }
 
     int surfaceArea(int[][] grid, int gridLength) {

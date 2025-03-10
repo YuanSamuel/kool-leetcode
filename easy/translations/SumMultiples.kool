@@ -1,9 +1,9 @@
 
 class SumMultiples {
     method Main() {
-        print(sumOfMultiples(7));
-        print(sumOfMultiples(10));
-        print(sumOfMultiples(9));
+        print(sumOfMultiples(7, "\n"));
+        print(sumOfMultiples(10, "\n"));
+        print(sumOfMultiples(9, "\n"));
     }
 
     int sumOfMultiples(int n) {

@@ -8,8 +8,8 @@ class SuperUglyNumber {
         primes[2] = 13;
         primes[3] = 19;
 
-        print(nthSuperUglyNumber(12, primes, primesLength));
-        print(nthSuperUglyNumber(20, primes, primesLength));
+        print(nthSuperUglyNumber(12, primes, primesLength, "\n"));
+        print(nthSuperUglyNumber(20, primes, primesLength, "\n"));
     }
 
     int nthSuperUglyNumber(int n, int[] primes, int primesLength) {

@@ -1,0 +1,22 @@
+class Solution {
+    int[] factorize(int n) {
+        int factSize = 0;
+        int fact[0];
+        int i = 2;
+        while (n > 1) {
+            if (n % i == 0) {
+                factSize++;
+                int temp[factSize];
+                for (int j = 0; j < factSize - 1; j++) {
+                    temp[j] = fact[j];
+                }
+                temp[factSize - 1] = i;
+                fact = temp;
+                n = n / i;
+            } else {
+                i++;
+            }
+        }
+        return fact;
+    }
+}

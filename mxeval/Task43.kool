@@ -1,0 +1,12 @@
+class Solution {
+    bool pairsSumToZero(int[] l, int lLength) {
+        for (int i = 0; i < lLength; i++) {
+            for (int j = i + 1; j < lLength; j++) {
+                if (l[i] + l[j] == 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}

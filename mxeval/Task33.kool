@@ -1,0 +1,15 @@
+class Solution {
+    int maxElement(int[] l, int lLength) {
+        if (lLength == 0) {
+            return 0;
+        }
+
+        int max = l[0];
+        for (int i = 1; i < lLength; i++) {
+            if (l[i] > max) {
+                max = l[i];
+            }
+        }
+        return max;
+    }
+}

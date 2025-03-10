@@ -1,0 +1,22 @@
+class Solution {
+    int largestPrimeFactor(int n) {
+        int largest = 1;
+        for (int j = 2; j <= n; j++) {
+            if (n % j == 0) {
+                boolean isPrime = j >= 2;
+                for (int i = 2; i < j - 1; i++) {
+                    if (j % i == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    if (j > largest) {
+                        largest = j;
+                    }
+                }
+            }
+        }
+        return largest;
+    }
+}

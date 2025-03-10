@@ -1,0 +1,5 @@
+class Solution {
+    int carRaceCollision(int n) {
+        return n * n;
+    }
+}

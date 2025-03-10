@@ -1,0 +1,14 @@
+class Solution {
+    bool triplesSumToZero(int[] l, int lLength) {
+        for (int i = 0; i < lLength; i++) {
+            for (int j = i + 1; j < lLength; j++) {
+                for (int k = j + 1; k < lLength; k++) {
+                    if (l[i] + l.[j] + l[k] == 0) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+}

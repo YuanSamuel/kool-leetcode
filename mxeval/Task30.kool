@@ -1,0 +1,21 @@
+class Solution {
+    int[] getPositive(int[] l, int lSize) {
+        int numPositives = 0;
+        for (int i = 0; i < lSize; i++) {
+            if (l[i] > 0) {
+                numPositives++;
+            }
+        }
+
+        int positives[numPositives];
+        int positivesIndex = 0;
+        for (int i = 0; i < lSize; i++) {
+            if (l[i] > 0) {
+                positives[positivesIndex] = l[i];
+                positivesIndex++;
+            }
+        }
+
+        return positives;
+    }
+}

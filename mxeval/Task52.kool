@@ -1,0 +1,10 @@
+class Solution {
+    bool belowThreshold(int[] l, int lLength) {
+        for (int i = 0; i < lLength; i++) {
+            if (l[i] >= t) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
